@@ -1,0 +1,20 @@
+---
+services:
+    rz_intervention_request:
+        class: RZ\InterventionRequestBundle\InterventionRequest\InterventionRequest
+        arguments:
+            - '@rz_intervention_request.configuration'
+            - '%rz_intervention_request.subscribers%'
+            - '@logger'
+
+    rz_intervention_request.configuration:
+        class: RZ\InterventionRequestBundle\InterventionRequest\Configuration
+        arguments:
+           - '@kernel'
+           - '%rz_intervention_request.files_path%'
+           - '%rz_intervention_request.driver%'
+           - '%rz_intervention_request.default_quality%'
+           - '%rz_intervention_request.pngquant_path%'
+           - '%rz_intervention_request.jpegoptim_path%'
+           - '%rz_intervention_request.cache_path%'
+           - '%rz_intervention_request.use_passthrough_cache%'

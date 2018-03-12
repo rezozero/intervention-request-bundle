@@ -1,0 +1,20 @@
+{
+    "name" : "rezozero/intervention-request-bundle",
+    "description" : "Bundle Symfony wrappant la librairie Intervention-Request",
+    "type" : "symfony-bundle",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Ambroise Maupate",
+            "email": "ambroise@rezo-zero.com"
+        }
+    ],
+    "require" : {
+        "ambroisemaupate/intervention-request":"^2.1"
+    },
+    "autoload" : {
+        "psr-4" : {
+            "RZ\\InterventionRequestBundle" : ""
+        }
+    }
+}
