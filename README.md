@@ -38,3 +38,15 @@ class AppKernel extends Kernel
     // ...
 }
 ```
+
+Add the routing:
+
+```yaml
+# app/config/routing.yml
+
+# ...
+rz_intervention_request:
+    resource: "@RZInterventionRequestBundle/Resources/config/routing.yml"
+    prefix:   /
+
+```
