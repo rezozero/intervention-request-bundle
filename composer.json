@@ -10,6 +10,7 @@
         }
     ],
     "require" : {
+        "symfony/symfony": "^3.2",
         "ambroisemaupate/intervention-request":"^2.1"
     },
     "autoload" : {
