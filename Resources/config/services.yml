@@ -1,5 +1,11 @@
 ---
 services:
+    RZ\InterventionRequestBundle\Command\CacheCommand:
+        arguments:
+            - '%rz_intervention_request.cache_path%'
+        tags:
+            - { name: 'console.command', command: 'cache:clear-images' }
+
     rz_intervention_request:
         class: RZ\InterventionRequestBundle\InterventionRequest\InterventionRequest
         arguments:
@@ -10,7 +16,6 @@ services:
     rz_intervention_request.configuration:
         class: RZ\InterventionRequestBundle\InterventionRequest\Configuration
         arguments:
-           - '@kernel'
            - '%rz_intervention_request.files_path%'
            - '%rz_intervention_request.driver%'
            - '%rz_intervention_request.default_quality%'

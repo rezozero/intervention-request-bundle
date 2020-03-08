@@ -1,5 +1,4 @@
 <?php
-
 namespace RZ\InterventionRequestBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
@@ -17,9 +16,8 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('rz_intervention_request');
-
+        $treeBuilder = new TreeBuilder('rz_intervention_request');
+        $rootNode = $treeBuilder->getRootNode();
         $rootNode->addDefaultsIfNotSet()
             ->children()
                 ->enumNode('driver')
@@ -37,7 +35,7 @@ class Configuration implements ConfigurationInterface
                     ->info('Pixel width limit after Roadiz should create a smaller copy')
                 ->end()
                 ->scalarNode('cache_path')
-                    ->defaultValue('/assets')
+                    ->defaultValue('%kernel.project_dir%/web/assets')
                 ->end()
                 ->booleanNode('use_passthrough_cache')->defaultTrue()->end()
                 ->scalarNode('jpegoptim_path')->end()

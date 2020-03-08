@@ -1,45 +1,33 @@
 <?php
-/**
- * Copyright (c) 2017. Rezo Zero
- *
- * Théâtre de la ville de Paris
- *
- * @file Configuration.php
- * @author Ambroise Maupate <ambroise@rezo-zero.com>
- */
-
 namespace RZ\InterventionRequestBundle\InterventionRequest;
 
 use AM\InterventionRequest\Configuration as BaseConfiguration;
-use Symfony\Component\HttpKernel\Kernel;
+use Symfony\Component\HttpKernel\KernelInterface;
 
 class Configuration extends BaseConfiguration
 {
     /**
      * Configuration constructor.
      *
-     * @param Kernel $kernel
-     * @param string $filesPath
-     * @param string $imageDriver
-     * @param int $defaultQuality
-     * @param null $pngquantPath
-     * @param null $jpegoptimPath
-     * @param string $cachePath
-     * @param bool $usePassThroughCache
+     * @param string          $filesPath
+     * @param string          $imageDriver
+     * @param int             $defaultQuality
+     * @param string|null     $pngquantPath
+     * @param string|null     $jpegoptimPath
+     * @param string          $cachePath
+     * @param bool            $usePassThroughCache
      */
     public function __construct(
-        Kernel $kernel,
-        $filesPath,
-        $imageDriver = 'gd',
-        $defaultQuality = 90,
-        $pngquantPath = null,
-        $jpegoptimPath = null,
-        $cachePath = '/assets',
-        $usePassThroughCache = true
+        string $filesPath,
+        string $imageDriver = 'gd',
+        int $defaultQuality = 90,
+        ?string $pngquantPath = null,
+        ?string $jpegoptimPath = null,
+        string $cachePath = '/assets',
+        bool $usePassThroughCache = true
     ) {
-        $this->setCachePath(realpath($kernel->getProjectDir() . '/web' . $cachePath));
+        $this->setCachePath(realpath($cachePath));
         $this->setImagesPath($filesPath);
-
         $this->setDriver($imageDriver);
         $this->setDefaultQuality($defaultQuality);
         $this->setPngquantPath($pngquantPath);

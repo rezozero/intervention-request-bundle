@@ -1,23 +1,16 @@
 <?php
-/**
- * Copyright (c) 2018. Rezo Zero
- *
- * Théâtre de la ville de Paris
- *
- * @file InterventionRequest.php
- * @author Ambroise Maupate <ambroise@rezo-zero.com>
- */
-
 namespace RZ\InterventionRequestBundle\InterventionRequest;
 
 use AM\InterventionRequest\Configuration;
 use AM\InterventionRequest\InterventionRequest as BaseInterventionRequest;
 use Psr\Log\LoggerInterface;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class InterventionRequest extends BaseInterventionRequest
 {
     /**
      * @inheritDoc
+     * @throws \ReflectionException
      */
     public function __construct(Configuration $configuration, array $subscribers, LoggerInterface $logger = null, array $processors = null)
     {
@@ -27,7 +20,10 @@ class InterventionRequest extends BaseInterventionRequest
             $class = $subscriber['class'];
             $constructArgs = $subscriber['args'];
             $refClass = new \ReflectionClass($class);
-            $this->addSubscriber($refClass->newInstanceArgs($constructArgs));
+            $subscriberInstance = $refClass->newInstanceArgs($constructArgs);
+            if ($subscriberInstance instanceof EventSubscriberInterface) {
+                $this->addSubscriber($subscriberInstance);
+            }
         }
     }
 }

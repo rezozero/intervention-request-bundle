@@ -10,8 +10,8 @@
         }
     ],
     "require" : {
-        "symfony/symfony": "^3.2",
-        "ambroisemaupate/intervention-request":"^2.1"
+        "symfony/symfony": "^3.2 || ^4.4",
+        "ambroisemaupate/intervention-request":"^2.4"
     },
     "autoload" : {
         "psr-4" : {
