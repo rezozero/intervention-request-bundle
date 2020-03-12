@@ -21,8 +21,8 @@ class CacheCommand extends Command
     /**
      * CacheCommand constructor.
      *
-     * @param string      $cachePath
-     * @param string|null $name
+     * @param string $cachePath
+     * @param string $name
      */
     public function __construct(string $cachePath, string $name = null)
     {

@@ -1,5 +1,4 @@
 <?php
-
 namespace RZ\InterventionRequestBundle\Controller;
 
 use AM\InterventionRequest\InterventionRequest;
