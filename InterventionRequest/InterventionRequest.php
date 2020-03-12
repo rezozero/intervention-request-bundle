@@ -9,7 +9,13 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 class InterventionRequest extends BaseInterventionRequest
 {
     /**
-     * @inheritDoc
+     * InterventionRequest constructor.
+     *
+     * @param Configuration        $configuration
+     * @param array                $subscribers
+     * @param LoggerInterface|null $logger
+     * @param array|null           $processors
+     *
      * @throws \ReflectionException
      */
     public function __construct(Configuration $configuration, array $subscribers, LoggerInterface $logger = null, array $processors = null)

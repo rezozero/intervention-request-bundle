@@ -22,3 +22,6 @@ services:
            - '%rz_intervention_request.jpegoptim_path%'
            - '%rz_intervention_request.cache_path%'
            - '%rz_intervention_request.use_passthrough_cache%'
+
+    RZ\InterventionRequestBundle\InterventionRequest\Configuration:
+        alias: rz_intervention_request.configuration
