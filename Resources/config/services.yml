@@ -1,4 +1,3 @@
----
 services:
     RZ\InterventionRequestBundle\Command\CacheCommand:
         arguments:

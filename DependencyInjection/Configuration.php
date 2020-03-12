@@ -18,7 +18,8 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder('rz_intervention_request');
         $rootNode = $treeBuilder->getRootNode();
-        $rootNode->addDefaultsIfNotSet()
+        $rootNode
+            ->addDefaultsIfNotSet()
             ->children()
                 ->enumNode('driver')
                     ->values(['gd', 'imagick'])
@@ -31,7 +32,7 @@ class Configuration implements ConfigurationInterface
                 ->end()
                 ->integerNode('max_pixel_size')
                     ->min(600)
-                    ->defaultValue(1920)
+                    ->defaultValue(2500)
                     ->info('Pixel width limit after Roadiz should create a smaller copy')
                 ->end()
                 ->scalarNode('cache_path')
