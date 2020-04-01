@@ -1,19 +1,27 @@
 services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        bind:
+            $cachePath: '%rz_intervention_request.cache_path%'
+            $subscribers: '%rz_intervention_request.subscribers%'
+
+    RZ\InterventionRequestBundle\Controller\:
+        resource: '../../Controller'
+        tags: ['controller.service_arguments']
+
     RZ\InterventionRequestBundle\Command\CacheCommand:
         arguments:
             - '%rz_intervention_request.cache_path%'
         tags:
             - { name: 'console.command', command: 'cache:clear-images' }
 
-    rz_intervention_request:
-        class: RZ\InterventionRequestBundle\InterventionRequest\InterventionRequest
-        arguments:
-            - '@rz_intervention_request.configuration'
-            - '%rz_intervention_request.subscribers%'
-            - '@logger'
+    RZ\InterventionRequestBundle\InterventionRequest\InterventionRequest:
 
-    rz_intervention_request.configuration:
-        class: RZ\InterventionRequestBundle\InterventionRequest\Configuration
+    AM\InterventionRequest\InterventionRequest:
+        alias: RZ\InterventionRequestBundle\InterventionRequest\InterventionRequest
+
+    RZ\InterventionRequestBundle\InterventionRequest\Configuration:
         arguments:
            - '%rz_intervention_request.files_path%'
            - '%rz_intervention_request.driver%'
@@ -23,5 +31,5 @@ services:
            - '%rz_intervention_request.cache_path%'
            - '%rz_intervention_request.use_passthrough_cache%'
 
-    RZ\InterventionRequestBundle\InterventionRequest\Configuration:
-        alias: rz_intervention_request.configuration
+    AM\InterventionRequest\Configuration:
+        alias: RZ\InterventionRequestBundle\InterventionRequest\Configuration

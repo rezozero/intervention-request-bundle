@@ -1,7 +1,7 @@
 <?php
 namespace RZ\InterventionRequestBundle\Controller;
 
-use AM\InterventionRequest\InterventionRequest;
+use RZ\InterventionRequestBundle\InterventionRequest\InterventionRequest;
 use AM\InterventionRequest\ShortUrlExpander;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Filesystem\Filesystem;
@@ -15,6 +15,28 @@ use Symfony\Component\HttpKernel\Kernel;
 class DefaultController extends Controller
 {
     /**
+     * @var InterventionRequest
+     */
+    private $interventionRequest;
+
+    /**
+     * @var string
+     */
+    private $cachePath;
+
+    /**
+     * DefaultController constructor.
+     *
+     * @param InterventionRequest $interventionRequest
+     * @param string $cachePath
+     */
+    public function __construct(InterventionRequest $interventionRequest, string $cachePath)
+    {
+        $this->interventionRequest = $interventionRequest;
+        $this->cachePath = $cachePath;
+    }
+
+    /**
      * @param Request $request
      * @param $queryString
      * @param $filename
@@ -24,18 +46,10 @@ class DefaultController extends Controller
     {
         try {
             $expander = new ShortUrlExpander($request);
-            $expander->setIgnorePath($this->getParameter('rz_intervention_request.cache_path'));
+            $expander->setIgnorePath($this->cachePath);
             $expander->injectParamsToRequest($queryString, $filename);
-
-            /** @var InterventionRequest $intervention */
-            $intervention = $this->get('rz_intervention_request');
-
-            //foreach ($this->get('intervention_request_subscribers') as $subscriber) {
-            //    $intervention->addSubscriber($subscriber);
-            //}
-
-            $intervention->handleRequest($request);
-            return $intervention->getResponse($request);
+            $this->interventionRequest->handleRequest($request);
+            return $this->interventionRequest->getResponse($request);
         } catch (\ReflectionException $e) {
             $message = '[Configuration] ' . $e->getMessage();
             return new Response(
@@ -59,9 +73,7 @@ class DefaultController extends Controller
     {
         $fs = new Filesystem();
         $finder = new Finder();
-        /** @var Kernel $kernel */
-        $kernel = $this->get('kernel');
-        $cachePath = realpath($kernel->getProjectDir() . '/web' . $this->getParameter('rz_intervention_request.cache_path'));
+        $cachePath = realpath($this->cachePath);
 
         if ($fs->exists($cachePath)) {
             $finder->in($cachePath);
