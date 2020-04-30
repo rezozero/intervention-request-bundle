@@ -2,7 +2,6 @@
 namespace RZ\InterventionRequestBundle\InterventionRequest;
 
 use AM\InterventionRequest\Configuration as BaseConfiguration;
-use Symfony\Component\HttpKernel\KernelInterface;
 
 class Configuration extends BaseConfiguration
 {

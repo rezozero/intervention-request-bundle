@@ -1,18 +1,17 @@
 <?php
 namespace RZ\InterventionRequestBundle\Controller;
 
-use RZ\InterventionRequestBundle\InterventionRequest\InterventionRequest;
 use AM\InterventionRequest\ShortUrlExpander;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use RZ\InterventionRequestBundle\InterventionRequest\InterventionRequest;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
-use Symfony\Component\HttpKernel\Kernel;
 
-class DefaultController extends Controller
+class DefaultController extends AbstractController
 {
     /**
      * @var InterventionRequest
