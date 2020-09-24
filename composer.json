@@ -13,7 +13,7 @@
         "php": ">=7.2",
         "symfony/console": "4.4.*",
         "symfony/framework-bundle": "4.4.*",
-        "ambroisemaupate/intervention-request":"^2.4"
+        "ambroisemaupate/intervention-request":"^2.4 || ^v3.1"
     },
     "autoload" : {
         "psr-4" : {
