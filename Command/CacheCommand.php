@@ -16,13 +16,11 @@ class CacheCommand extends Command
     /**
      * @var string
      */
-    protected $cachePath;
+    protected string $cachePath;
 
     /**
-     * CacheCommand constructor.
-     *
      * @param string $cachePath
-     * @param string $name
+     * @param string|null $name
      */
     public function __construct(string $cachePath, string $name = null)
     {
@@ -30,6 +28,9 @@ class CacheCommand extends Command
         $this->cachePath = $cachePath;
     }
 
+    /**
+     * @return void
+     */
     protected function configure()
     {
         $this->setName('cache:clear-images')
@@ -44,7 +45,7 @@ class CacheCommand extends Command
         $finder = new Finder();
         $cachePath = realpath($this->cachePath);
 
-        if ($fs->exists($cachePath)) {
+        if ($cachePath && $fs->exists($cachePath)) {
             $finder->in($cachePath);
             $fs->remove($finder);
             $io->success('Assets cache has been purged.');

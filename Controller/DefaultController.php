@@ -13,19 +13,10 @@ use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 class DefaultController extends AbstractController
 {
-    /**
-     * @var InterventionRequest
-     */
-    private $interventionRequest;
+    private InterventionRequest $interventionRequest;
+    private string $cachePath;
 
     /**
-     * @var string
-     */
-    private $cachePath;
-
-    /**
-     * DefaultController constructor.
-     *
      * @param InterventionRequest $interventionRequest
      * @param string $cachePath
      */
@@ -37,11 +28,11 @@ class DefaultController extends AbstractController
 
     /**
      * @param Request $request
-     * @param $queryString
-     * @param $filename
+     * @param string $queryString
+     * @param string $filename
      * @return Response
      */
-    public function assetsAction(Request $request, $queryString, $filename)
+    public function assetsAction(Request $request, string $queryString, string $filename): Response
     {
         try {
             $expander = new ShortUrlExpander($request);
@@ -68,13 +59,13 @@ class DefaultController extends AbstractController
     /**
      * @return JsonResponse
      */
-    public function clearCacheAction()
+    public function clearCacheAction(): JsonResponse
     {
         $fs = new Filesystem();
         $finder = new Finder();
         $cachePath = realpath($this->cachePath);
 
-        if ($fs->exists($cachePath)) {
+        if ($cachePath && $fs->exists($cachePath)) {
             $finder->in($cachePath);
             $fs->remove($finder);
             return new JsonResponse([

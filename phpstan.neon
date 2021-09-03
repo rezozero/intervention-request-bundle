@@ -1,0 +1,20 @@
+parameters:
+    level: max
+    paths:
+        - ./
+    excludes_analyse:
+        - */node_modules/*
+        - */bower_components/*
+        - */static/*
+        - */vendor/*
+    ignoreErrors:
+            - '#type has no value type specified in iterable type#'
+            - '#with no value type specified in iterable type#'
+            - '#has no return typehint specified\.#'
+            - '#on an unknown class (Memcached|Redis)#'
+            - '#Call to an undefined method Doctrine\\ORM\\EntityRepository\<#'
+            - '#Call to an undefined method Symfony\\Component\\Config\\Definition\\Builder#'
+    reportUnmatchedIgnoredErrors: false
+    checkGenericClassInNonGenericObjectType: false
+
+includes: []

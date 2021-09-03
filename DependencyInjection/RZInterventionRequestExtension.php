@@ -39,7 +39,7 @@ class RZInterventionRequestExtension extends Extension
         $this->loadSubscribers($container, $config);
     }
 
-    protected function loadSubscribers(ContainerBuilder $container, $config)
+    protected function loadSubscribers(ContainerBuilder $container, array $config)
     {
         $subscribers = [];
         foreach ($config['subscribers'] as $subscriberConfig) {
@@ -51,6 +51,6 @@ class RZInterventionRequestExtension extends Extension
             }
             $subscribers[] = $refClass->newInstanceArgs($constructArgs);
         }
-        $container->setParameter('rz_intervention_request.subscribers', $config['subscribers']);
+        $container->setParameter('rz_intervention_request.subscribers', $subscribers);
     }
 }
