@@ -17,6 +17,9 @@ services:
             - { name: 'console.command', command: 'cache:clear-images' }
 
     RZ\InterventionRequestBundle\InterventionRequest\InterventionRequest:
+        arguments:
+            - AM\InterventionRequest\Configuration
+            - '%rz_intervention_request.subscribers%'
 
     AM\InterventionRequest\InterventionRequest:
         alias: RZ\InterventionRequestBundle\InterventionRequest\InterventionRequest

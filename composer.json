@@ -11,13 +11,13 @@
     ],
     "require" : {
         "php": ">=7.4",
-        "symfony/console": "~4.4.0 || ~5.1.0",
-        "symfony/framework-bundle": "~4.4.0 || ~5.1.0",
-        "ambroisemaupate/intervention-request":"^3.1"
+        "symfony/console": "~4.4.0 || ^5.1.0",
+        "symfony/framework-bundle": "~4.4.0 || ^5.1.0",
+        "ambroisemaupate/intervention-request":"^3.2"
     },
     "autoload" : {
         "psr-4" : {
-            "RZ\\InterventionRequestBundle\\" : ""
+            "RZ\\InterventionRequestBundle\\": "src/"
         }
     },
     "require-dev": {

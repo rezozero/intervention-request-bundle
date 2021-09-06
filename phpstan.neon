@@ -16,5 +16,6 @@ parameters:
             - '#Call to an undefined method Symfony\\Component\\Config\\Definition\\Builder#'
     reportUnmatchedIgnoredErrors: false
     checkGenericClassInNonGenericObjectType: false
+    treatPhpDocTypesAsCertain: false
 
 includes: []
