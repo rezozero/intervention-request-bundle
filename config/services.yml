@@ -13,6 +13,11 @@ services:
         tags:
             - { name: 'console.command', command: 'cache:clear-images' }
 
+    RZ\InterventionRequestBundle\Controller\DefaultController:
+        arguments:
+            - '@RZ\InterventionRequestBundle\InterventionRequest\InterventionRequest'
+            - '%rz_intervention_request.cache_path%'
+
     RZ\InterventionRequestBundle\InterventionRequest\InterventionRequest:
         arguments:
             - '@RZ\InterventionRequestBundle\InterventionRequest\Configuration'
