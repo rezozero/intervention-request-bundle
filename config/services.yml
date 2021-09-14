@@ -7,7 +7,7 @@ services:
             $subscribers: '%rz_intervention_request.subscribers%'
 
     RZ\InterventionRequestBundle\Controller\:
-        resource: '../../Controller'
+        resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
     RZ\InterventionRequestBundle\Command\CacheCommand:
