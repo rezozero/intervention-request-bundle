@@ -3,14 +3,7 @@ interventionRequestProcess:
     path: /assets/{queryString}/{filename}
     methods: ['GET']
     defaults:
-        _controller: RZInterventionRequestBundle:Default:assets
+        _controller: RZ\InterventionRequestBundle\Controller\DefaultController:assetsAction
     requirements:
         queryString : '[a-zA-Z:0-9\-]+'
         filename : '[a-zA-Z0-9\-_\.\/]+'
-
-interventionRequestPurge:
-    path: /assets
-    methods: ['DELETE']
-    defaults:
-        _controller: RZInterventionRequestBundle:Default:clearCache
-        _format: json
