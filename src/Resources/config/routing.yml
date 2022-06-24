@@ -7,10 +7,3 @@ interventionRequestProcess:
     requirements:
         queryString : '[a-zA-Z:0-9\-]+'
         filename : '[a-zA-Z0-9\-_\.\/]+'
-
-interventionRequestPurge:
-    path: /assets
-    methods: ['DELETE']
-    defaults:
-        _controller: RZ\InterventionRequestBundle\Controller\DefaultController::clearCacheAction
-        _format: json

@@ -47,13 +47,17 @@ class CacheCommand extends Command
         $finder = new Finder();
         $cachePath = realpath($this->cachePath);
 
-        if ($cachePath && $fs->exists($cachePath)) {
-            $finder->in($cachePath);
-            $fs->remove($finder);
-            $io->success('Assets cache has been purged.');
-            return 0;
+        if ($io->confirm(sprintf('Are you to clear images cache in %s?', $cachePath), false)) {
+            if ($cachePath && $fs->exists($cachePath)) {
+                $finder->in($cachePath);
+                $fs->remove($finder);
+                $io->success('Assets cache has been purged.');
+                return 0;
+            }
+            $io->error($cachePath . ' folder does not exist.');
+            return 1;
         }
-        $io->error($cachePath . ' folder does not exist.');
-        return 1;
+
+        return 0;
     }
 }
