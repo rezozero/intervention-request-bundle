@@ -3,10 +3,6 @@ services:
         autowire: true
         autoconfigure: true
 
-    RZ\InterventionRequestBundle\Controller\:
-        resource: '../src/Controller'
-        tags: ['controller.service_arguments']
-
     RZ\InterventionRequestBundle\Command\CacheCommand:
         arguments:
             - '%rz_intervention_request.cache_path%'
@@ -14,6 +10,7 @@ services:
             - { name: 'console.command', command: 'cache:clear-images' }
 
     RZ\InterventionRequestBundle\Controller\DefaultController:
+        tags: ['controller.service_arguments']
         arguments:
             - '@RZ\InterventionRequestBundle\InterventionRequest\InterventionRequest'
             - '%rz_intervention_request.cache_path%'
