@@ -4,6 +4,8 @@ interventionRequestProcess:
     methods: ['GET']
     defaults:
         _controller: RZ\InterventionRequestBundle\Controller\DefaultController::assetsAction
+        # Hardcode locale to prevent app to find a default one
+        _locale: en
     requirements:
         queryString : '[a-zA-Z:0-9\-]+'
         filename : '[a-zA-Z0-9\-_\.\/]+'
