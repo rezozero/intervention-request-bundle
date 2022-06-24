@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace RZ\InterventionRequestBundle\Command;
 
 use Symfony\Component\Console\Command\Command;
@@ -38,7 +40,7 @@ class CacheCommand extends Command
         ;
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
         $fs = new Filesystem();

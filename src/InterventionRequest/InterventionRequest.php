@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace RZ\InterventionRequestBundle\InterventionRequest;
 
 use AM\InterventionRequest\Configuration;

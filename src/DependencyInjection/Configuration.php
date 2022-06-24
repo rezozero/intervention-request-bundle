@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace RZ\InterventionRequestBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;

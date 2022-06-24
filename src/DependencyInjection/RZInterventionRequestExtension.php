@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace RZ\InterventionRequestBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
@@ -19,12 +21,12 @@ class RZInterventionRequestExtension extends Extension
     /**
      * {@inheritdoc}
      */
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../../config'));
+        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../../config'));
         $loader->load('services.yml');
 
         $container->setParameter('rz_intervention_request.driver', $config['driver']);
@@ -39,7 +41,7 @@ class RZInterventionRequestExtension extends Extension
         $this->loadSubscribers($container, $config);
     }
 
-    protected function loadSubscribers(ContainerBuilder $container, array $config)
+    protected function loadSubscribers(ContainerBuilder $container, array $config): void
     {
         $subscribers = [];
         foreach ($config['subscribers'] as $subscriberConfig) {
