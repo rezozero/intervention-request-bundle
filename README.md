@@ -1,5 +1,7 @@
 # Intervention Request Bundle
 
+[![Build Status](https://app.travis-ci.com/rezozero/intervention-request-bundle.svg?branch=master)](https://app.travis-ci.com/rezozero/intervention-request-bundle)
+
 ### Step 1: Download the Bundle
 
 Open a command console, enter your project directory and execute the
