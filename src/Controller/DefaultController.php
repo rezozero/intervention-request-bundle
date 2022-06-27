@@ -1,17 +1,15 @@
 <?php
+
+declare(strict_types=1);
+
 namespace RZ\InterventionRequestBundle\Controller;
 
 use AM\InterventionRequest\ShortUrlExpander;
 use RZ\InterventionRequestBundle\InterventionRequest\InterventionRequest;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Filesystem\Filesystem;
-use Symfony\Component\Finder\Finder;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
-class DefaultController extends AbstractController
+final class DefaultController
 {
     private InterventionRequest $interventionRequest;
     private string $cachePath;
@@ -54,25 +52,5 @@ class DefaultController extends AbstractController
                 ['content-type' => 'text/plain']
             );
         }
-    }
-
-    /**
-     * @return JsonResponse
-     */
-    public function clearCacheAction(): JsonResponse
-    {
-        $fs = new Filesystem();
-        $finder = new Finder();
-        $cachePath = realpath($this->cachePath);
-
-        if ($cachePath && $fs->exists($cachePath)) {
-            $finder->in($cachePath);
-            $fs->remove($finder);
-            return new JsonResponse([
-                'message' => 'Intervention request image cache has been purged.'
-            ]);
-        }
-
-        throw new BadRequestHttpException('Cache dir does not exists.');
     }
 }

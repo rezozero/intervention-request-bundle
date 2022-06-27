@@ -23,7 +23,7 @@ in the `config/bundles.php` file of your project:
 
 return [
     // ...
-    RZ\InterventionRequestBundle\RZInterventionRequestBundle::class => ['all' => true],
+    \RZ\InterventionRequestBundle\RZInterventionRequestBundle::class => ['all' => true],
 ];
 ```
 

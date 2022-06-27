@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace RZ\InterventionRequestBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
@@ -26,12 +29,10 @@ class Configuration implements ConfigurationInterface
                     ->defaultValue('gd')
                     ->info('GD does not support TIFF and PSD formats, but iMagick must be installed')
                 ->end()
-                ->integerNode('default_quality')
-                    ->min(10)->max(100)
+                ->scalarNode('default_quality')
                     ->defaultValue(90)
                 ->end()
-                ->integerNode('max_pixel_size')
-                    ->min(600)
+                ->scalarNode('max_pixel_size')
                     ->defaultValue(2500)
                     ->info('Pixel width limit after Roadiz should create a smaller copy')
                 ->end()

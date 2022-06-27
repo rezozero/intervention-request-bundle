@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace RZ\InterventionRequestBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
@@ -24,14 +26,14 @@ class RZInterventionRequestExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../../config'));
+        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../../config'));
         $loader->load('services.yml');
 
         $container->setParameter('rz_intervention_request.driver', $config['driver']);
         $container->setParameter('rz_intervention_request.cache_path', $config['cache_path']);
-        $container->setParameter('rz_intervention_request.default_quality', $config['default_quality']);
+        $container->setParameter('rz_intervention_request.default_quality', (int) $config['default_quality']);
         $container->setParameter('rz_intervention_request.use_passthrough_cache', $config['use_passthrough_cache']);
-        $container->setParameter('rz_intervention_request.max_pixel_size', $config['max_pixel_size']);
+        $container->setParameter('rz_intervention_request.max_pixel_size', (int) $config['max_pixel_size']);
         $container->setParameter('rz_intervention_request.files_path', $config['files_path']);
         $container->setParameter('rz_intervention_request.jpegoptim_path', $config['jpegoptim_path']);
         $container->setParameter('rz_intervention_request.pngquant_path', $config['pngquant_path']);

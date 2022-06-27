@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace RZ\InterventionRequestBundle\InterventionRequest;
 
 use AM\InterventionRequest\Configuration as BaseConfiguration;
@@ -24,11 +27,11 @@ class Configuration extends BaseConfiguration
         string $cachePath = '/assets',
         bool $usePassThroughCache = true
     ) {
-        $cachePath = realpath($cachePath);
-        if (false === $cachePath) {
+        $realCachePath = realpath($cachePath);
+        if (false === $realCachePath) {
             throw new RuntimeException($cachePath . ' is not readable');
         }
-        $this->setCachePath($cachePath);
+        $this->setCachePath($realCachePath);
         $this->setImagesPath($filesPath);
         $this->setDriver($imageDriver);
         $this->setDefaultQuality($defaultQuality);
