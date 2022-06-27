@@ -19,7 +19,7 @@ class RZInterventionRequestExtension extends Extension
     /**
      * {@inheritdoc}
      */
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
@@ -39,7 +39,7 @@ class RZInterventionRequestExtension extends Extension
         $this->loadSubscribers($container, $config);
     }
 
-    protected function loadSubscribers(ContainerBuilder $container, array $config)
+    protected function loadSubscribers(ContainerBuilder $container, array $config): void
     {
         $subscribers = [];
         foreach ($config['subscribers'] as $subscriberConfig) {

@@ -41,14 +41,29 @@ rz_intervention_request:
 ### Step 3: configuration
 
 ```yaml
-# config/packages/intervention_request.yaml
+# config/packages/rz_intervention_request.yaml
+parameters:
+    env(IR_DEFAULT_QUALITY): '90'
+    env(IR_MAX_PIXEL_SIZE): '1920'
+    ir_default_quality: '%env(int:IR_DEFAULT_QUALITY)%'
+    ir_max_pixel_size: '%env(int:IR_MAX_PIXEL_SIZE)%'
+
 rz_intervention_request:
     driver: 'gd'
-    default_quality: 90
-    max_pixel_size: 2500
+    default_quality: '%ir_default_quality%'
+    max_pixel_size: '%ir_max_pixel_size%'
     cache_path: "%kernel.project_dir%/public/assets"
     files_path: "%kernel.project_dir%/public/files"
     jpegoptim_path: /usr/bin/jpegoptim
     pngquant_path: /usr/bin/pngquant
     subscribers: []
+```
+
+Then add the following variables to your project `.env` file:
+
+```dotenv
+###> rezozero/intervention-request-bundle ###
+IR_DEFAULT_QUALITY=90
+IR_MAX_PIXEL_SIZE=2500
+###< rezozero/intervention-request-bundle ###
 ```
