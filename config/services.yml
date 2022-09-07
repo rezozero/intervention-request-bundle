@@ -3,6 +3,10 @@ services:
         autowire: true
         autoconfigure: true
 
+    Intervention\Image\ImageManager:
+        arguments:
+            - { driver: '%rz_intervention_request.driver%' }
+
     RZ\InterventionRequestBundle\Command\CacheCommand:
         arguments:
             - '%rz_intervention_request.cache_path%'
