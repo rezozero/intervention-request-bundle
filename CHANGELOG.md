@@ -1,3 +1,9 @@
+## 2.0.1 (2022-09-07)
+
+### Features
+
+* Register `Intervention\Image\ImageManager` as a service with the right driver configured ([3d7181c](https://github.com/rezozero/intervention-request-bundle/commit/3d7181c5393c8b63bc1fe806071015dc2c9e5318))
+
 ## 2.0.0 (2022-06-27)
 
 ### Features
