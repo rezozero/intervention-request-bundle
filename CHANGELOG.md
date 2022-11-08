@@ -1,3 +1,9 @@
+## 2.0.2 (2022-11-08)
+
+### Bug Fixes
+
+* Deprecation fix with return type ([27410b7](https://github.com/rezozero/intervention-request-bundle/commit/27410b739ba5609d8e9eeb8f11ea140e47623c1a))
+
 ## 2.0.1 (2022-09-07)
 
 ### Features
