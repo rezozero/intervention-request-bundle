@@ -1,3 +1,9 @@
+## 2.0.3 (2022-11-10)
+
+### Bug Fixes
+
+* Do not cast default quality and max pixel sizes parameters as it breaks DotEnv lazy resolution ([4bb5327](https://github.com/rezozero/intervention-request-bundle/commit/4bb5327d791b39dad31d46a29d6ef79c63410831))
+
 ## 2.0.2 (2022-11-08)
 
 ### Bug Fixes
