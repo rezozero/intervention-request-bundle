@@ -1,3 +1,7 @@
+parameters:
+    env(IR_DEFAULT_QUALITY): '90'
+    env(IR_MAX_PIXEL_SIZE): '2500'
+
 services:
     _defaults:
         autowire: true
