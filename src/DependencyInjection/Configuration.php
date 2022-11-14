@@ -16,10 +16,8 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->addDefaultsIfNotSet()
             ->children()
-                ->enumNode('driver')
-                    ->values(['gd', 'imagick'])
+                ->scalarNode('driver')
                     ->defaultValue('gd')
-                    ->info('GD does not support TIFF and PSD formats, but iMagick must be installed')
                 ->end()
                 ->scalarNode('default_quality')
                     ->defaultValue(90)
