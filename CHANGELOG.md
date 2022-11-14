@@ -1,3 +1,9 @@
+## 2.0.4 (2022-11-14)
+
+### Bug Fixes
+
+* Do not validate configuration values, this is not compatible with DotEnv late-resolution ([889e885](https://github.com/rezozero/intervention-request-bundle/commit/889e88521ab3dc6750f7d41afacf51bb1427a155))
+
 ## 2.0.3 (2022-11-10)
 
 ### Bug Fixes
