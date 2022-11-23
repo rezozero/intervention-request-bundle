@@ -26,7 +26,9 @@ services:
     RZ\InterventionRequestBundle\InterventionRequest\InterventionRequest:
         arguments:
             - '@RZ\InterventionRequestBundle\InterventionRequest\Configuration'
+            - '@AM\InterventionRequest\FileResolverInterface'
             - '%rz_intervention_request.subscribers%'
+            - '@logger'
 
     AM\InterventionRequest\InterventionRequest:
         alias: RZ\InterventionRequestBundle\InterventionRequest\InterventionRequest
