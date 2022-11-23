@@ -43,34 +43,6 @@ class RZInterventionRequestExtension extends Extension
         $container->setParameter('rz_intervention_request.jpegoptim_path', $config['jpegoptim_path']);
         $container->setParameter('rz_intervention_request.pngquant_path', $config['pngquant_path']);
 
-        /**
-         * If an `intervention_request.storage` flysystem storage has been configured, we use it.
-         */
-        if ($container->hasDefinition('intervention_request.storage')) {
-            $container->setDefinition(
-                FileResolverInterface::class,
-                (new Definition())
-                    ->setClass(FlysystemFileResolver::class)
-                    ->setPublic(true)
-                    ->setArguments([
-                        new Reference('intervention_request.storage'),
-                        new Reference('logger'),
-                        $container->getParameter('rz_intervention_request.files_path')
-                    ])
-            );
-        } else {
-            $container->setDefinition(
-                FileResolverInterface::class,
-                (new Definition())
-                    ->setClass(LocalFileResolver::class)
-                    ->setPublic(true)
-                    ->setArguments([
-                        $container->getParameter('rz_intervention_request.files_path')
-                    ])
-            );
-        }
-
-
         $this->loadSubscribers($container, $config);
     }
 
