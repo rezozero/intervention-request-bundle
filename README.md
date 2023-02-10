@@ -69,3 +69,18 @@ IR_DEFAULT_QUALITY=90
 IR_MAX_PIXEL_SIZE=2500
 ###< rezozero/intervention-request-bundle ###
 ```
+
+### Use Flysystem file resolver
+
+Declare a [flysystem](https://github.com/thephpleague/flysystem-bundle) storage named `intervention_request.storage` and 
+this bundle will automatically use it instead of the `LocalFileResolver`:
+
+```yaml
+# Read the documentation at https://github.com/thephpleague/flysystem-bundle/blob/master/docs/1-getting-started.md
+flysystem:
+    storages:
+        intervention_request.storage:
+            adapter: 'local'
+            options:
+                directory: '%kernel.project_dir%/public/files'
+```
