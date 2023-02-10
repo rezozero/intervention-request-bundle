@@ -1,3 +1,17 @@
+## 3.0.0 (2023-02-10)
+
+### ⚠ BREAKING CHANGES
+
+* Requires php80 minimum
+* Requires `ambroisemaupate/intervention-request` >= 4.0.0
+
+### Features
+
+* Added compilerPass to get intervention_request.storage reference ([79c7cc4](https://github.com/rezozero/intervention-request-bundle/commit/79c7cc4af56fe2da50e9497df8c7885ad47c7289))
+* Automatically wire existing Flysystem `intervention_request.storage` ([a8d67aa](https://github.com/rezozero/intervention-request-bundle/commit/a8d67aa180e68cb5239d3eb9295f81f923fc5733))
+* Requires php80 minimum ([e729358](https://github.com/rezozero/intervention-request-bundle/commit/e729358c16d35cc0505d19f2dfc34bd9e577e672))
+* Update `InterventionRequest` signature with `FileResolverInterface` ([a81af8d](https://github.com/rezozero/intervention-request-bundle/commit/a81af8d9d979a8e4830b146d1cb1f1dc73a68c0c))
+
 ## 2.0.4 (2022-11-14)
 
 ### Bug Fixes
