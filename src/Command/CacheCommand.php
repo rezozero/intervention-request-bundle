@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace RZ\InterventionRequestBundle\Command;
@@ -15,25 +16,15 @@ use Symfony\Component\Finder\Finder;
  */
 class CacheCommand extends Command
 {
-    /**
-     * @var string
-     */
     protected string $cachePath;
 
-    /**
-     * @param string $cachePath
-     * @param string|null $name
-     */
-    public function __construct(string $cachePath, string $name = null)
+    public function __construct(string $cachePath, ?string $name = null)
     {
         parent::__construct($name);
         $this->cachePath = $cachePath;
     }
 
-    /**
-     * @return void
-     */
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('cache:clear-images')
             ->setDescription('Clear intervention-request image cache.')
@@ -52,9 +43,11 @@ class CacheCommand extends Command
                 $finder->in($cachePath);
                 $fs->remove($finder);
                 $io->success('Assets cache has been purged.');
+
                 return 0;
             }
-            $io->error($cachePath . ' folder does not exist.');
+            $io->error($cachePath.' folder does not exist.');
+
             return 1;
         }
 

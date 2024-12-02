@@ -41,3 +41,4 @@ fabric.properties
 # End of https://www.gitignore.io/api/phpstorm
 /report.txt
 /.phpcs-cache
+/.php-cs-fixer.cache
