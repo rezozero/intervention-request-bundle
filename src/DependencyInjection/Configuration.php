@@ -33,7 +33,7 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('jpegoptim_path')->defaultNull()->end()
                 ->scalarNode('pngquant_path')->defaultNull()->end()
                 ->scalarNode('files_path')
-                    ->defaultValue("%kernel.project_dir%/web/files")
+                    ->defaultValue('%kernel.project_dir%/web/files')
                 ->end()
                 ->arrayNode('subscribers')
                     ->prototype('array')
