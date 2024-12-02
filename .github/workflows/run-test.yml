@@ -36,6 +36,8 @@ jobs:
             - name: Install Dependencies
               run: composer install --no-scripts --no-ansi --no-interaction --no-progress
             - name: Run PHP CS Fixer
+              env:
+                  PHP_CS_FIXER_IGNORE_ENV: 1
               run: vendor/bin/php-cs-fixer check --ansi -vvv
             - name: Run PHPStan
               run: vendor/bin/phpstan analyse --no-progress -c phpstan.neon
