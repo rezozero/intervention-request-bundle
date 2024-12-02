@@ -1,3 +1,9 @@
+## 3.0.1 (2024-12-02)
+
+### Features
+
+* Updated dependencies and allow php8.4 ([83d9248](https://github.com/rezozero/intervention-request-bundle/commit/83d924826a81f2ce811d1dfba7bd9cfefd086c0b))
+
 ## 3.0.0 (2023-02-10)
 
 ### ⚠ BREAKING CHANGES
