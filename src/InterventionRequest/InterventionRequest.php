@@ -14,18 +14,14 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 class InterventionRequest extends BaseInterventionRequest
 {
     /**
-     * @param Configuration $configuration
-     * @param FileResolverInterface $fileResolver
      * @param array<EventSubscriberInterface> $subscribers
-     * @param LoggerInterface|null $logger
-     * @param array|null $processors
      */
     public function __construct(
         Configuration $configuration,
         FileResolverInterface $fileResolver,
         array $subscribers,
-        LoggerInterface $logger = null,
-        array $processors = null
+        ?LoggerInterface $logger = null,
+        ?array $processors = null,
     ) {
         parent::__construct(
             $configuration,
@@ -38,7 +34,7 @@ class InterventionRequest extends BaseInterventionRequest
             if ($subscriber instanceof EventSubscriberInterface) {
                 $this->addSubscriber($subscriber);
             } else {
-                throw new \RuntimeException(get_class($subscriber) . ' is not instance of ' . EventSubscriberInterface::class);
+                throw new \RuntimeException(get_class($subscriber).' is not instance of '.EventSubscriberInterface::class);
             }
         }
     }

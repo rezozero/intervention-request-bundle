@@ -8,6 +8,7 @@ parameters:
         - */static/*
         - */vendor/*
     ignoreErrors:
+        - identifier: missingType.generics
         - '#type has no value type specified in iterable type#'
         - '#with no value type specified in iterable type#'
         - '#has no return typehint specified\.#'
@@ -15,5 +16,4 @@ parameters:
         - '#Call to an undefined method Doctrine\\ORM\\EntityRepository\<#'
         - '#Call to an undefined method Symfony\\Component\\Config\\Definition\\Builder#'
     reportUnmatchedIgnoredErrors: false
-    checkGenericClassInNonGenericObjectType: false
     treatPhpDocTypesAsCertain: false

@@ -1,4 +1,4 @@
-image: roadiz/php81-runner
+image: roadiz/php83-runner
 stages:
   - test
 
@@ -17,5 +17,5 @@ test:
   stage: test
   script:
     - composer install --dev --no-scripts --no-suggest
-    - vendor/bin/phpcs -p
+    - vendor/bin/php-cs-fixer check --ansi -vvv
     - vendor/bin/phpstan analyse -c phpstan.neon

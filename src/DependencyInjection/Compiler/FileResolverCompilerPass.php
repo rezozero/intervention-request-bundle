@@ -14,12 +14,9 @@ use Symfony\Component\DependencyInjection\Reference;
 
 class FileResolverCompilerPass implements CompilerPassInterface
 {
-    /**
-     * @inheritDoc
-     */
     public function process(ContainerBuilder $container): void
     {
-        /**
+        /*
          * If an `intervention_request.storage` flysystem storage has been configured, we use it.
          */
         if ($container->hasDefinition('intervention_request.storage')) {
@@ -31,7 +28,7 @@ class FileResolverCompilerPass implements CompilerPassInterface
                     ->setArguments([
                         new Reference('intervention_request.storage'),
                         new Reference('logger'),
-                        $container->getParameter('rz_intervention_request.files_path')
+                        $container->getParameter('rz_intervention_request.files_path'),
                     ])
             );
         } else {
@@ -41,7 +38,7 @@ class FileResolverCompilerPass implements CompilerPassInterface
                     ->setClass(LocalFileResolver::class)
                     ->setPublic(true)
                     ->setArguments([
-                        $container->getParameter('rz_intervention_request.files_path')
+                        $container->getParameter('rz_intervention_request.files_path'),
                     ])
             );
         }
