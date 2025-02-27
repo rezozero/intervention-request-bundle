@@ -84,3 +84,27 @@ flysystem:
             options:
                 directory: '%kernel.project_dir%/public/files'
 ```
+
+#### Use a S3 storage
+
+Requires `league/flysystem-async-aws-s3` then declare your `intervention_request.storage` using a S3 client:
+
+```yaml
+services:
+    s3_public_client:
+        class: 'AsyncAws\S3\S3Client'
+        arguments:
+            -   endpoint: '%env(APP_S3_STORAGE_ENDPOINT)%'
+                accessKeyId: '%env(APP_S3_STORAGE_ACCESS_KEY)%'
+                accessKeySecret: '%env(APP_S3_STORAGE_SECRET_KEY)%'
+                    
+flysystem:
+    storages:
+        intervention_request.storage:
+            adapter: 'asyncaws'
+            visibility: 'private'
+            options:
+                client: 'scaleway_public_client'
+                bucket: '%env(APP_S3_STORAGE_BUCKET_ID)%'
+                prefix: 'public-files'
+```
