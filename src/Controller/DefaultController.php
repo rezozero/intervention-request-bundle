@@ -9,15 +9,12 @@ use RZ\InterventionRequestBundle\InterventionRequest\InterventionRequest;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-final class DefaultController
+final readonly class DefaultController
 {
-    private InterventionRequest $interventionRequest;
-    private string $cachePath;
-
-    public function __construct(InterventionRequest $interventionRequest, string $cachePath)
-    {
-        $this->interventionRequest = $interventionRequest;
-        $this->cachePath = $cachePath;
+    public function __construct(
+        private InterventionRequest $interventionRequest,
+        private string $cachePath,
+    ) {
     }
 
     public function assetsAction(Request $request, string $queryString, string $filename): Response

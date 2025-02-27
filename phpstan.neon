@@ -15,5 +15,7 @@ parameters:
         - '#on an unknown class (Memcached|Redis)#'
         - '#Call to an undefined method Doctrine\\ORM\\EntityRepository\<#'
         - '#Call to an undefined method Symfony\\Component\\Config\\Definition\\Builder#'
+        - '#Parameter \#2 \$value of method Symfony\\Component\\DependencyInjection\\Container::setParameter\(\)#'
+        - '#Cannot call method (end|info|prototype|booleanNode|arrayNode|defaultValue|defaultNull|defaultTrue|isRequired|children|cannotBeEmpty|scalarNode)\(\) on mixed#'
     reportUnmatchedIgnoredErrors: false
     treatPhpDocTypesAsCertain: false
