@@ -1,6 +1,6 @@
 # Intervention Request Bundle
 
-[![Build Status](https://app.travis-ci.com/rezozero/intervention-request-bundle.svg?branch=master)](https://app.travis-ci.com/rezozero/intervention-request-bundle)
+[![Static analysis and code style](https://github.com/rezozero/intervention-request-bundle/actions/workflows/run-test.yml/badge.svg)](https://github.com/rezozero/intervention-request-bundle/actions/workflows/run-test.yml)
 
 ### Step 1: Download the Bundle
 
