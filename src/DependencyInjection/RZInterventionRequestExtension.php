@@ -41,9 +41,26 @@ class RZInterventionRequestExtension extends Extension
     protected function loadSubscribers(ContainerBuilder $container, array $config): void
     {
         $subscribers = [];
+        if (!\is_iterable($config['subscribers'])) {
+            $container->setParameter('rz_intervention_request.subscribers', $subscribers);
+
+            return;
+        }
+        /**
+         * @var array<string, mixed> $subscriberConfig
+         */
         foreach ($config['subscribers'] as $subscriberConfig) {
+            /**
+             * @var class-string|null $class
+             */
             $class = $subscriberConfig['class'];
+            if (!\is_string($class)) {
+                continue;
+            }
             $constructArgs = $subscriberConfig['args'];
+            if (!\is_array($constructArgs)) {
+                $constructArgs = [];
+            }
             $refClass = new \ReflectionClass($class);
             if (!$refClass->implementsInterface(EventSubscriberInterface::class)) {
                 throw new InvalidConfigurationException($refClass->getName().'must implement '.EventSubscriberInterface::class);

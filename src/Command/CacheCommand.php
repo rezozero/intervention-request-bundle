@@ -16,12 +16,9 @@ use Symfony\Component\Finder\Finder;
  */
 class CacheCommand extends Command
 {
-    protected string $cachePath;
-
-    public function __construct(string $cachePath, ?string $name = null)
+    public function __construct(protected readonly string $cachePath, ?string $name = null)
     {
         parent::__construct($name);
-        $this->cachePath = $cachePath;
     }
 
     protected function configure(): void
