@@ -2,6 +2,12 @@
 
 All notable changes to project will be documented in this file.
 
+## [4.1.0](https://github.com/rezozero/intervention-request-bundle/compare/4.0.0...4.1.0) - 2025-04-07
+
+### Features
+
+- Upgrade IR dependency and route queryString regex to allow dot in processors - ([9b159d3](https://github.com/rezozero/intervention-request-bundle/commit/9b159d3e03b164f317cd27eb36522fedfdd0930e)) - Ambroise Maupate
+
 ## [4.0.0](https://github.com/rezozero/intervention-request-bundle/compare/3.0.1...4.0.0) - 2025-02-27
 
 ### ⚠ Breaking changes
