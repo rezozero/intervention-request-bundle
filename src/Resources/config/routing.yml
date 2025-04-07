@@ -7,5 +7,5 @@ interventionRequestProcess:
         # Hardcode locale to prevent app to find a default one
         _locale: en
     requirements:
-        queryString : '[a-zA-Z:0-9\-]+'
+        queryString : '[a-zA-Z:;0-9\-\.]+'
         filename : '[a-zA-Z0-9\-_\.\/]+'
