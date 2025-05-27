@@ -2,6 +2,12 @@
 
 All notable changes to project will be documented in this file.
 
+## [5.0.0](https://github.com/rezozero/intervention-request-bundle/compare/4.1.0...5.0.0) - 2025-05-27
+
+### Features
+
+- Update intervention-request to ^6.0 ([#2](https://github.com/rezozero/intervention-request-bundle/issues/2)) - ([58249e3](https://github.com/rezozero/intervention-request-bundle/commit/58249e3c973f6e15157a779fa26965aab6037cf1)) - Eliot
+
 ## [4.1.0](https://github.com/rezozero/intervention-request-bundle/compare/4.0.0...4.1.0) - 2025-04-07
 
 ### Features
