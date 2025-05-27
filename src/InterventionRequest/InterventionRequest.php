@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace RZ\InterventionRequestBundle\InterventionRequest;
 
 use AM\InterventionRequest\Configuration;
+use AM\InterventionRequest\Encoder\ImageEncoderInterface;
 use AM\InterventionRequest\FileResolverInterface;
 use AM\InterventionRequest\InterventionRequest as BaseInterventionRequest;
 use Psr\Log\LoggerInterface;
@@ -20,6 +21,7 @@ class InterventionRequest extends BaseInterventionRequest
     public function __construct(
         Configuration $configuration,
         FileResolverInterface $fileResolver,
+        ImageEncoderInterface $imageEncoder,
         array $subscribers,
         ?LoggerInterface $logger = null,
         ?array $processors = null,
@@ -30,6 +32,7 @@ class InterventionRequest extends BaseInterventionRequest
             $configuration,
             $fileResolver,
             $logger ?? new NullLogger(),
+            $imageEncoder,
             $processors,
             $debug
         );
