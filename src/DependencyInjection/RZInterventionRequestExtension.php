@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace RZ\InterventionRequestBundle\DependencyInjection;
 
+use Intervention\Image\Interfaces\DriverInterface;
 use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Loader;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
@@ -34,6 +36,10 @@ class RZInterventionRequestExtension extends Extension
         $container->setParameter('rz_intervention_request.files_path', $config['files_path']);
         $container->setParameter('rz_intervention_request.jpegoptim_path', $config['jpegoptim_path']);
         $container->setParameter('rz_intervention_request.pngquant_path', $config['pngquant_path']);
+
+        $driverDefinition = new Definition(DriverInterface::class);
+        $driverDefinition->setClass(('imagick' === $config['driver']) ? \Intervention\Image\Drivers\Imagick\Driver::class : \Intervention\Image\Drivers\Gd\Driver::class);
+        $container->setDefinition(DriverInterface::class, $driverDefinition);
 
         $this->loadSubscribers($container, $config);
     }

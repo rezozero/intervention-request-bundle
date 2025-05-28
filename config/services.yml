@@ -9,13 +9,16 @@ services:
 
     Intervention\Image\ImageManager:
         arguments:
-            - { driver: '%rz_intervention_request.driver%' }
+            - '@Intervention\Image\Interfaces\DriverInterface'
 
     RZ\InterventionRequestBundle\Command\CacheCommand:
         arguments:
             - '%rz_intervention_request.cache_path%'
         tags:
             - { name: 'console.command', command: 'cache:clear-images' }
+
+    AM\InterventionRequest\Encoder\ImageEncoderInterface:
+        class: AM\InterventionRequest\Encoder\ImageEncoder
 
     RZ\InterventionRequestBundle\Controller\DefaultController:
         tags: ['controller.service_arguments']
@@ -27,6 +30,7 @@ services:
         arguments:
             - '@RZ\InterventionRequestBundle\InterventionRequest\Configuration'
             - '@AM\InterventionRequest\FileResolverInterface'
+            - '@AM\InterventionRequest\Encoder\ImageEncoderInterface'
             - '%rz_intervention_request.subscribers%'
             - '@logger'
 
