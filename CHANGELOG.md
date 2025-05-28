@@ -2,6 +2,13 @@
 
 All notable changes to project will be documented in this file.
 
+## [5.0.1](https://github.com/rezozero/intervention-request-bundle/compare/5.0.0...5.0.1) - 2025-05-28
+
+### Bug Fixes
+
+- Update driver argument syntax in ImageManager ([#3](https://github.com/rezozero/intervention-request-bundle/issues/3)) - ([18bf04a](https://github.com/rezozero/intervention-request-bundle/commit/18bf04a5f03ed1e79c74ef1471e517e744a38198)) - Eliot
+- Missing ImageEncoderInterface service declaration - ([4652af3](https://github.com/rezozero/intervention-request-bundle/commit/4652af3ff3b0fc9411c498d51f3aacb7f562206b)) - Ambroise Maupate
+
 ## [5.0.0](https://github.com/rezozero/intervention-request-bundle/compare/4.1.0...5.0.0) - 2025-05-27
 
 ### Features
