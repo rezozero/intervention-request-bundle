@@ -9,7 +9,7 @@ services:
 
     Intervention\Image\ImageManager:
         arguments:
-            - '%rz_intervention_request.driver%'
+            - '@Intervention\Image\Interfaces\DriverInterface'
 
     RZ\InterventionRequestBundle\Command\CacheCommand:
         arguments:
