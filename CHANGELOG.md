@@ -2,6 +2,16 @@
 
 All notable changes to project will be documented in this file.
 
+## [5.1.0](https://github.com/rezozero/intervention-request-bundle/compare/5.0.2...5.1.0) - 2025-07-23
+
+### Features
+
+- Update intervention-request to v7 and upgrade DefaultController - ([989fba2](https://github.com/rezozero/intervention-request-bundle/commit/989fba29393f85ffde4d44ae333f20aa828f6363)) - Ambroise Maupate
+
+### Refactor
+
+- Update intervention-request version constraint to ^7.0 - ([d334df9](https://github.com/rezozero/intervention-request-bundle/commit/d334df987ae4927063668c4dba763fbfa7e3f55b)) - Ambroise Maupate
+
 ## [5.0.2](https://github.com/rezozero/intervention-request-bundle/compare/5.0.1...5.0.2) - 2025-07-23
 
 ### Bug Fixes
