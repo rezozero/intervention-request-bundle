@@ -23,9 +23,8 @@ final readonly class DefaultController
             $expander = new ShortUrlExpander($request);
             $expander->setIgnorePath($this->cachePath);
             $expander->injectParamsToRequest($queryString, $filename);
-            $this->interventionRequest->handleRequest($request);
 
-            return $this->interventionRequest->getResponse($request);
+            return $this->interventionRequest->handleRequest($request);
         } catch (\ReflectionException $e) {
             $message = '[Configuration] '.$e->getMessage();
 
