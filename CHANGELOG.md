@@ -2,6 +2,12 @@
 
 All notable changes to project will be documented in this file.
 
+## [5.0.2](https://github.com/rezozero/intervention-request-bundle/compare/5.0.1...5.0.2) - 2025-07-23
+
+### Bug Fixes
+
+- Update intervention-request version constraint and relax phpstan dependencies - ([20fa631](https://github.com/rezozero/intervention-request-bundle/commit/20fa631f76c7d008c53ef69a77e2ddfb2f383a2e)) - Ambroise Maupate
+
 ## [5.0.1](https://github.com/rezozero/intervention-request-bundle/compare/5.0.0...5.0.1) - 2025-05-28
 
 ### Bug Fixes
